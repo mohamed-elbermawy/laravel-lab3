@@ -9,11 +9,17 @@
             {{ method_field('PUT') }}‏
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title" emailHelp" value="{{$post['title']}}">
+                <input type="text" class="form-control" id="title" name="title" class="@error('title') isi-invalid @enderror" value="{{$post['title']}}">
+                @error('title')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" name="description" >{{$post['description']}}</textarea>
+                <textarea class="form-control" name="description" class="@error('description') isi-invalid @enderror">{{$post['description']}}</textarea>
+                @error('description')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mb-3">

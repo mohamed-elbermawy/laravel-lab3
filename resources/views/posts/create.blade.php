@@ -5,11 +5,17 @@
     @csrf
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" value="{{old('title')}}">
+        @error('title')
+        <div class="alert alert-danger mt-2">{{ $message }}</div>
+        @enderror
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" name="description"></textarea>
+      <textarea class="form-control" name="description" >{{old('description')}}</textarea>
+        @error('description')
+        <div class="alert alert-danger mt-2">{{ $message }}</div>
+        @enderror
     </div>
     <div class="mb-3">
       <label for="post_creator" class="form-label">Post Creator</label>
@@ -19,7 +25,7 @@
         @endforeach
       </select>
     </div>
-    
+
     <button type="submit" class="btn btn-success">Create</button>
   </form>
 
