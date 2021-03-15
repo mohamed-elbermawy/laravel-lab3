@@ -37,6 +37,6 @@
       @endforeach
     </tbody>
   </table>
-  {{$posts->links('posts.pagination')}}
+  {{$posts->links()}}
 </div>
 @endsection
